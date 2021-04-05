@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F5261B5350005DEE64 /* AppDelegate.swift */; };
 		2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F7261B5350005DEE64 /* SceneDelegate.swift */; };
-		2D9270FA261B5350005DEE64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F9261B5350005DEE64 /* ViewController.swift */; };
 		2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9270FB261B5350005DEE64 /* Main.storyboard */; };
 		2D9270FF261B5352005DEE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D9270FE261B5352005DEE64 /* Assets.xcassets */; };
 		2D927102261B5352005DEE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D927100261B5352005DEE64 /* LaunchScreen.storyboard */; };
+		2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92710F261B5DDB005DEE64 /* BaseViewController.swift */; };
+		2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D927112261B5DE7005DEE64 /* CalculatorViewController.swift */; };
+		2D927116261B5DF6005DEE64 /* ExchangeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D927115261B5DF6005DEE64 /* ExchangeListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D9270F2261B5350005DEE64 /* CurrencyConverter_RuiCanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter_RuiCanas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9270F5261B5350005DEE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9270F7261B5350005DEE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D9270F9261B5350005DEE64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2D9270FC261B5350005DEE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D9270FE261B5352005DEE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D927101261B5352005DEE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D927103261B5352005DEE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D92710F261B5DDB005DEE64 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2D927112261B5DE7005DEE64 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		2D927115261B5DF6005DEE64 /* ExchangeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		2D9270F4261B5350005DEE64 /* CurrencyConverter_RuiCanas */ = {
 			isa = PBXGroup;
 			children = (
+				2D92710C261B53CF005DEE64 /* View */,
+				2D92710B261B53CB005DEE64 /* Controller */,
+				2D92710A261B53C6005DEE64 /* Model */,
 				2D9270F5261B5350005DEE64 /* AppDelegate.swift */,
 				2D9270F7261B5350005DEE64 /* SceneDelegate.swift */,
-				2D9270F9261B5350005DEE64 /* ViewController.swift */,
-				2D9270FB261B5350005DEE64 /* Main.storyboard */,
 				2D9270FE261B5352005DEE64 /* Assets.xcassets */,
-				2D927100261B5352005DEE64 /* LaunchScreen.storyboard */,
 				2D927103261B5352005DEE64 /* Info.plist */,
 			);
 			path = CurrencyConverter_RuiCanas;
+			sourceTree = "<group>";
+		};
+		2D92710A261B53C6005DEE64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D92710B261B53CB005DEE64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D92710F261B5DDB005DEE64 /* BaseViewController.swift */,
+				2D927112261B5DE7005DEE64 /* CalculatorViewController.swift */,
+				2D927115261B5DF6005DEE64 /* ExchangeListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D92710C261B53CF005DEE64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D9270FB261B5350005DEE64 /* Main.storyboard */,
+				2D927100261B5352005DEE64 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D9270FA261B5350005DEE64 /* ViewController.swift in Sources */,
+				2D927116261B5DF6005DEE64 /* ExchangeListViewController.swift in Sources */,
 				2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */,
 				2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */,
+				2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */,
+				2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
