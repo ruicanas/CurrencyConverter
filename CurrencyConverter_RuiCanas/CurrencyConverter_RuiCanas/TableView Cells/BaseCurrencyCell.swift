@@ -8,7 +8,10 @@
 import UIKit
 
 class BaseCurrencyCell: UITableViewCell {
-
+    @IBOutlet weak var flagImageView: UIImageView!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
