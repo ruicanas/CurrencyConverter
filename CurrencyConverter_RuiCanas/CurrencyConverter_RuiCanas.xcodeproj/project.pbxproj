@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D06C4EC261C544B00D35810 /* RatesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C4EA261C544B00D35810 /* RatesListCell.swift */; };
+		2D06C4ED261C544B00D35810 /* RatesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4EB261C544B00D35810 /* RatesListCell.xib */; };
 		2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F5261B5350005DEE64 /* AppDelegate.swift */; };
 		2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F7261B5350005DEE64 /* SceneDelegate.swift */; };
 		2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9270FB261B5350005DEE64 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D06C4EA261C544B00D35810 /* RatesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesListCell.swift; sourceTree = "<group>"; };
+		2D06C4EB261C544B00D35810 /* RatesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatesListCell.xib; sourceTree = "<group>"; };
 		2D9270F2261B5350005DEE64 /* CurrencyConverter_RuiCanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter_RuiCanas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9270F5261B5350005DEE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9270F7261B5350005DEE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D06C4E9261C53C800D35810 /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2D06C4EA261C544B00D35810 /* RatesListCell.swift */,
+				2D06C4EB261C544B00D35810 /* RatesListCell.xib */,
+			);
+			path = "TableView Cells";
+			sourceTree = "<group>";
+		};
 		2D9270E9261B5350005DEE64 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 		2D9270F4261B5350005DEE64 /* CurrencyConverter_RuiCanas */ = {
 			isa = PBXGroup;
 			children = (
+				2D06C4E9261C53C800D35810 /* TableView Cells */,
 				2D92710C261B53CF005DEE64 /* View */,
 				2D92710B261B53CB005DEE64 /* Controller */,
 				2D92710A261B53C6005DEE64 /* Model */,
@@ -155,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D927102261B5352005DEE64 /* LaunchScreen.storyboard in Resources */,
+				2D06C4ED261C544B00D35810 /* RatesListCell.xib in Resources */,
 				2D9270FF261B5352005DEE64 /* Assets.xcassets in Resources */,
 				2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */,
 			);
@@ -170,6 +185,7 @@
 				2D927116261B5DF6005DEE64 /* ExchangeListViewController.swift in Sources */,
 				2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */,
 				2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */,
+				2D06C4EC261C544B00D35810 /* RatesListCell.swift in Sources */,
 				2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */,
 				2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */,
 			);
