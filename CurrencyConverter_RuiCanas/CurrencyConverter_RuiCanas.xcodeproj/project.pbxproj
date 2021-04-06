@@ -11,6 +11,8 @@
 		2D06C4ED261C544B00D35810 /* RatesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4EB261C544B00D35810 /* RatesListCell.xib */; };
 		2D06C4F5261C580E00D35810 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C4F3261C580E00D35810 /* MainCell.swift */; };
 		2D06C4F6261C580E00D35810 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4F4261C580E00D35810 /* MainCell.xib */; };
+		2D06C4FA261C5C0900D35810 /* BaseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C4F8261C5C0900D35810 /* BaseCurrencyCell.swift */; };
+		2D06C4FB261C5C0900D35810 /* BaseCurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4F9261C5C0900D35810 /* BaseCurrencyCell.xib */; };
 		2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F5261B5350005DEE64 /* AppDelegate.swift */; };
 		2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F7261B5350005DEE64 /* SceneDelegate.swift */; };
 		2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9270FB261B5350005DEE64 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		2D06C4EB261C544B00D35810 /* RatesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatesListCell.xib; sourceTree = "<group>"; };
 		2D06C4F3261C580E00D35810 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		2D06C4F4261C580E00D35810 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
+		2D06C4F8261C5C0900D35810 /* BaseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyCell.swift; sourceTree = "<group>"; };
+		2D06C4F9261C5C0900D35810 /* BaseCurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseCurrencyCell.xib; sourceTree = "<group>"; };
 		2D9270F2261B5350005DEE64 /* CurrencyConverter_RuiCanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter_RuiCanas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9270F5261B5350005DEE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9270F7261B5350005DEE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 				2D06C4EB261C544B00D35810 /* RatesListCell.xib */,
 				2D06C4F3261C580E00D35810 /* MainCell.swift */,
 				2D06C4F4261C580E00D35810 /* MainCell.xib */,
+				2D06C4F8261C5C0900D35810 /* BaseCurrencyCell.swift */,
+				2D06C4F9261C5C0900D35810 /* BaseCurrencyCell.xib */,
 			);
 			path = "TableView Cells";
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 				2D9270FF261B5352005DEE64 /* Assets.xcassets in Resources */,
 				2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */,
 				2D06C4F6261C580E00D35810 /* MainCell.xib in Resources */,
+				2D06C4FB261C5C0900D35810 /* BaseCurrencyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +203,7 @@
 				2D06C4EC261C544B00D35810 /* RatesListCell.swift in Sources */,
 				2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */,
 				2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */,
+				2D06C4FA261C5C0900D35810 /* BaseCurrencyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
