@@ -158,6 +158,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-jl-I5C">
+                                                <rect key="frame" x="107" y="501" width="200" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9uR-T1-Ond"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="u0l-IM-Uol"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="17"/>
+                                                <state key="normal" title="Calculate">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -165,10 +177,12 @@
                                             <constraint firstItem="1Ak-Nf-WPW" firstAttribute="top" secondItem="T2K-rA-PNP" secondAttribute="bottom" constant="8" symbolic="YES" id="3yi-lk-Yga"/>
                                             <constraint firstAttribute="trailing" secondItem="bnJ-db-e18" secondAttribute="trailing" priority="750" constant="306" id="81d-rI-Q6t"/>
                                             <constraint firstItem="R63-TV-XtC" firstAttribute="leading" secondItem="F3t-AR-HHt" secondAttribute="leading" constant="8" id="ADb-Wj-8YW"/>
+                                            <constraint firstItem="qVB-jl-I5C" firstAttribute="top" secondItem="aO0-3f-bbM" secondAttribute="bottom" constant="148" id="BpA-7j-RQ1"/>
                                             <constraint firstAttribute="trailing" secondItem="Yjl-tR-r8j" secondAttribute="trailing" constant="8" id="GtN-eU-0pB"/>
                                             <constraint firstItem="oh1-WJ-VCh" firstAttribute="top" secondItem="F3t-AR-HHt" secondAttribute="top" constant="50" id="HFU-Em-aE9"/>
                                             <constraint firstItem="6JN-9V-hix" firstAttribute="top" secondItem="L7R-7Z-WdU" secondAttribute="bottom" constant="80" id="HHI-Q7-a45"/>
                                             <constraint firstItem="T2K-rA-PNP" firstAttribute="leading" secondItem="qsh-Uo-3bk" secondAttribute="trailing" constant="8" symbolic="YES" id="KtG-Xw-cVA"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qVB-jl-I5C" secondAttribute="bottom" constant="30" id="RB8-rq-6ps"/>
                                             <constraint firstItem="bnJ-db-e18" firstAttribute="top" secondItem="1Ak-Nf-WPW" secondAttribute="bottom" constant="42" id="SdB-pd-gOV"/>
                                             <constraint firstItem="aO0-3f-bbM" firstAttribute="leading" secondItem="F3t-AR-HHt" secondAttribute="leading" constant="14" id="V5a-fi-01f"/>
                                             <constraint firstItem="qsh-Uo-3bk" firstAttribute="leading" secondItem="F3t-AR-HHt" secondAttribute="leading" constant="8" id="VNd-A2-z7o"/>
@@ -187,6 +201,7 @@
                                             <constraint firstItem="T2K-rA-PNP" firstAttribute="top" secondItem="L7R-7Z-WdU" secondAttribute="bottom" constant="103.67" id="lWH-dZ-n3O"/>
                                             <constraint firstItem="oh1-WJ-VCh" firstAttribute="leading" secondItem="R63-TV-XtC" secondAttribute="trailing" constant="8" symbolic="YES" id="ovD-Fc-VMl"/>
                                             <constraint firstItem="Yjl-tR-r8j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oh1-WJ-VCh" secondAttribute="trailing" priority="750" constant="30" id="pBw-Om-kDd"/>
+                                            <constraint firstItem="qVB-jl-I5C" firstAttribute="centerX" secondItem="F3t-AR-HHt" secondAttribute="centerX" id="pdx-fh-dBz"/>
                                             <constraint firstItem="L7R-7Z-WdU" firstAttribute="top" secondItem="oh1-WJ-VCh" secondAttribute="bottom" constant="8" symbolic="YES" id="s1p-Vg-ETy"/>
                                             <constraint firstItem="R63-TV-XtC" firstAttribute="top" secondItem="F3t-AR-HHt" secondAttribute="top" constant="47" id="wL4-Jf-r9W"/>
                                             <constraint firstAttribute="trailing" secondItem="L7R-7Z-WdU" secondAttribute="trailing" constant="8" id="zZ5-D4-4qE"/>
@@ -213,6 +228,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calculator" image="calculator" id="GiU-VQ-BWJ"/>
+                    <connections>
+                        <outlet property="calculateButton" destination="qVB-jl-I5C" id="YRU-fL-aIv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSd-4e-MN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

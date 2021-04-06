@@ -8,10 +8,15 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-
+    @IBOutlet weak var calculateButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        calculateButton.layer.cornerRadius = 4
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
