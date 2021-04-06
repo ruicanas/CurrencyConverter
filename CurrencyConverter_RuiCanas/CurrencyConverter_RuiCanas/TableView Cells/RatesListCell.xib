@@ -18,6 +18,10 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FIm-d9-3Q0">
                         <rect key="frame" x="16" y="6" width="53" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="6eQ-S6-Jxi"/>
+                            <constraint firstAttribute="width" constant="53" id="oHw-z8-V2f"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-Pg-Ual">
                         <rect key="frame" x="76" y="6" width="41" height="21"/>
