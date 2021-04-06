@@ -8,7 +8,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    @IBOutlet weak var baseTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
