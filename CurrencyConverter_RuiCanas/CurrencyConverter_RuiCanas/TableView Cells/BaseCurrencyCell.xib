@@ -32,9 +32,16 @@
                         <state key="normal" title="&gt;">
                             <color key="titleColor" systemColor="systemGray4Color"/>
                         </state>
+                        <connections>
+                            <action selector="changeBaseCurrencyPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S8q-IQ-tKu"/>
+                        </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XBw-CB-ta0">
                         <rect key="frame" x="163" y="12" width="60" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="eEr-OX-czY"/>
+                            <constraint firstAttribute="width" constant="60" id="p4e-vg-fEG"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XER-tg-ldO">
                         <rect key="frame" x="231" y="12" width="37" height="21"/>

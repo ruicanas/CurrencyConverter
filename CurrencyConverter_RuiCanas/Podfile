@@ -7,4 +7,5 @@ target 'CurrencyConverter_RuiCanas' do
 
   # Pods for CurrencyConverter_RuiCanas
   pod 'AFNetworking', '~> 4.0'
+  pod 'Kingfisher', '~> 6.0'
 end

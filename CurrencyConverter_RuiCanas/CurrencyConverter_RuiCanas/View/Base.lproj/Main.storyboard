@@ -46,7 +46,7 @@
         <!--Exchange Rates List-->
         <scene sceneID="F3C-jX-K9R">
             <objects>
-                <viewController id="qiy-2Y-tsy" customClass="ExchangeListViewController" customModule="CurrencyConverter_RuiCanas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exchange" id="qiy-2Y-tsy" customClass="ExchangeListViewController" customModule="CurrencyConverter_RuiCanas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THw-iB-ASN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

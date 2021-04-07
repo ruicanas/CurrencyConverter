@@ -18,7 +18,7 @@
 @property (weak, nonatomic) id<CountriesRatesDelegate> delegate;
 
 //Methods
-- (void) requestQuotes;
+- (void) requestRatesWithBase: (NSString*)currencyCode;
 @end
 
 @protocol CountriesRatesDelegate <NSObject>

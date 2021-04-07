@@ -10,8 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Rate : NSObject
-@property NSString* code;
+@property NSString* currencyCode;
+@property NSString* currencyName;
 @property NSString* value;
+@property NSString* flagUrl;
 
 - (instancetype)initWithCode: (NSString*)code andValue: (NSNumber*)value;
 @end

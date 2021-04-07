@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol BaseCurrencyCellDelegate {
+    func changeView()
+}
+
 class BaseCurrencyCell: UITableViewCell {
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
+    var delegate: BaseCurrencyCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +28,11 @@ class BaseCurrencyCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func changeBaseCurrencyPressed(_ sender: Any) {
+        delegate?.changeView()
+        
+//        if ([self.delegate respondsToSelector:@selector(updateTableView)]) {
+//            [self.delegate updateTableView];
+//        }
+    }
 }

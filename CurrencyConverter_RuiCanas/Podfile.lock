@@ -14,17 +14,21 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - Kingfisher (6.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 4.0)
+  - Kingfisher (~> 6.0)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - Kingfisher
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
 
-PODFILE CHECKSUM: 011e5c70f20e47fdd903599d8ca5f7e9ea1a372e
+PODFILE CHECKSUM: 55f200086d7663abab768eb5d5a394eda87018a7
 
 COCOAPODS: 1.10.1

@@ -6,20 +6,23 @@
 //
 
 #import "Rate.h"
+#import "AFNetworking.h"
 
 @implementation Rate
 - (instancetype)initWithCode: (NSString*)code andValue: (NSNumber*)value
 {
     self = [super init];
     if (self) {
-        self.code = code;
+        self.currencyCode = code;
         self.value = [self giveDecimalPlaces:value];
+        self.currencyName = @"Unavailable Name";
+        self.flagUrl = @"";
     }
     return self;
 }
 
 - (NSComparisonResult)compare:(Rate *)otherObject {
-    return [self.code compare:otherObject.code];
+    return [self.currencyCode compare:otherObject.currencyCode];
 }
 
 - (NSString*) giveDecimalPlaces: (NSNumber*)value{
