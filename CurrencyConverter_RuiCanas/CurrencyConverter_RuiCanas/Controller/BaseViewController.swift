@@ -25,8 +25,12 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
         self.baseTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "mainCell")
         self.baseTableView.register(UINib(nibName: "BaseCurrencyCell", bundle: nil), forCellReuseIdentifier: "baseCell")
         countriesRates.delegate = self;
+        
+        countriesRates.request(withBase: countriesRates.source)
+    }
     
-        countriesRates.request(withBase: baseRate)
+    override func viewWillAppear(_ animated: Bool) {
+        baseRate = countriesRates.source
     }
     
     //Responsible for changing the view in order to make the user choose another currency
@@ -40,6 +44,8 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
             view?.availableCountries = countriesRates
         }
     }
+    
+    
 }
 
 extension BaseViewController: UITableViewDataSource{
@@ -91,6 +97,10 @@ extension BaseViewController: UITableViewDataSource{
 extension BaseViewController: UITableViewDelegate{
     func updateTableView(){
         baseTableView.reloadData()
+        
+        //Update info being holded at TabViewController
+        let tabBar = tabBarController as! TabViewController
+        tabBar.ratesData = countriesRates
     }
 }
 

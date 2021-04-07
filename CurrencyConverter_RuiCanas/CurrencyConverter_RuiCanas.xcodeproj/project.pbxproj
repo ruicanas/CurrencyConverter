@@ -22,6 +22,7 @@
 		2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92710F261B5DDB005DEE64 /* BaseViewController.swift */; };
 		2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D927112261B5DE7005DEE64 /* CalculatorViewController.swift */; };
 		2D927116261B5DF6005DEE64 /* ExchangeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D927115261B5DF6005DEE64 /* ExchangeListViewController.swift */; };
+		2DC9C8DE261E2A6B0046C480 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9C8DD261E2A6B0046C480 /* TabViewController.swift */; };
 		2DCFDF8D261D091800E4B3D2 /* Rate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFDF8C261D091800E4B3D2 /* Rate.m */; };
 		9217FFC8486A2B4A41C64551 /* Pods_CurrencyConverter_RuiCanas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B62F5CB0CAFF2BE2AC11BC /* Pods_CurrencyConverter_RuiCanas.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		2D92710F261B5DDB005DEE64 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2D927112261B5DE7005DEE64 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		2D927115261B5DF6005DEE64 /* ExchangeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeListViewController.swift; sourceTree = "<group>"; };
+		2DC9C8DD261E2A6B0046C480 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		2DCFDF8B261D091800E4B3D2 /* Rate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rate.h; sourceTree = "<group>"; };
 		2DCFDF8C261D091800E4B3D2 /* Rate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rate.m; sourceTree = "<group>"; };
 		342322A8AC60A3531F5A3F7C /* Pods-CurrencyConverter_RuiCanas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyConverter_RuiCanas.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyConverter_RuiCanas/Pods-CurrencyConverter_RuiCanas.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				2D9270F7261B5350005DEE64 /* SceneDelegate.swift */,
 				2D9270FE261B5352005DEE64 /* Assets.xcassets */,
 				2D927103261B5352005DEE64 /* Info.plist */,
+				2DC9C8DD261E2A6B0046C480 /* TabViewController.swift */,
 			);
 			path = CurrencyConverter_RuiCanas;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */,
 				2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */,
 				2DCFDF8D261D091800E4B3D2 /* Rate.m in Sources */,
+				2DC9C8DE261E2A6B0046C480 /* TabViewController.swift in Sources */,
 				2D06C4EC261C544B00D35810 /* RatesListCell.swift in Sources */,
 				2D927113261B5DE7005DEE64 /* CalculatorViewController.swift in Sources */,
 				2D927110261B5DDB005DEE64 /* BaseViewController.swift in Sources */,

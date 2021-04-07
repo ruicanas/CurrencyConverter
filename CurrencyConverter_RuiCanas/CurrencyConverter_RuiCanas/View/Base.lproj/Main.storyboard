@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="2728" y="94"/>
         </scene>
-        <!--Calculator-->
+        <!--Calculator View Controller-->
         <scene sceneID="LKT-wy-RdS">
             <objects>
                 <viewController id="fhR-GK-M9o" customClass="CalculatorViewController" customModule="CurrencyConverter_RuiCanas" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,10 +83,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-rs-fNP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3t-AR-HHt" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R63-TV-XtC">
                                                 <rect key="frame" x="8" y="47" width="56" height="24"/>
@@ -173,6 +173,9 @@
                                                 <state key="normal" title="Calculate">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="calculatePressed:" destination="fhR-GK-M9o" eventType="touchUpInside" id="eYj-sU-nBz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,19 +234,27 @@
                             <constraint firstItem="uEF-rs-fNP" firstAttribute="top" secondItem="SQM-ij-02t" secondAttribute="top" id="fUo-A8-mfK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calculator" image="calculator" id="GiU-VQ-BWJ"/>
+                    <navigationItem key="navigationItem" id="I0k-M9-bj9"/>
                     <connections>
                         <outlet property="calculateButton" destination="qVB-jl-I5C" id="YRU-fL-aIv"/>
+                        <outlet property="changeFromImageView" destination="Yjl-tR-r8j" id="ZcC-Cj-yWp"/>
+                        <outlet property="changeToImageView" destination="6JN-9V-hix" id="yoS-PQ-eHO"/>
+                        <outlet property="codeFromCurrencyLabel" destination="R63-TV-XtC" id="fUp-jG-Myl"/>
+                        <outlet property="codeToCurrencyLabel" destination="qsh-Uo-3bk" id="HAD-OU-DRI"/>
+                        <outlet property="currencyNameFromLabel" destination="oh1-WJ-VCh" id="GlL-qO-YWr"/>
+                        <outlet property="currencyNameToLabel" destination="T2K-rA-PNP" id="271-w2-ebA"/>
+                        <outlet property="fromCurrencyTextField" destination="L7R-7Z-WdU" id="qTA-tH-FZp"/>
+                        <outlet property="toCurrencyTextField" destination="1Ak-Nf-WPW" id="0n9-cH-G9i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSd-4e-MN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="787.5"/>
+            <point key="canvasLocation" x="1357.9710144927537" y="851.78571428571422"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="ARz-xk-7Jn">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8BZ-2j-Io1" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8BZ-2j-Io1" customClass="TabViewController" customModule="CurrencyConverter_RuiCanas" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f3c-hS-LGN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -252,7 +263,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="SPY-c2-MsD" kind="relationship" relationship="viewControllers" id="r0u-lW-FzC"/>
-                        <segue destination="fhR-GK-M9o" kind="relationship" relationship="viewControllers" id="NFa-1O-3Gy"/>
+                        <segue destination="RS8-Qn-0G7" kind="relationship" relationship="viewControllers" id="NFa-1O-3Gy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zD0-0l-4xW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,6 +288,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9i-Y8-wkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+        </scene>
+        <!--Calculator-->
+        <scene sceneID="gkz-s4-rk2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RS8-Qn-0G7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calculator" image="calculator" id="GiU-VQ-BWJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hV8-l1-80v">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fhR-GK-M9o" kind="relationship" relationship="rootViewController" id="vQk-Oz-Y2Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QbP-tf-ZY8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="851.78571428571422"/>
         </scene>
     </scenes>
     <resources>

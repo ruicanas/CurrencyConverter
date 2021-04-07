@@ -13,6 +13,7 @@ class ExchangeListViewController: UIViewController{
     let DEFAULT_IMG = "https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png"
     var availableCountries = CountriesRates()
     var countriesCopy = [Rate]()
+    var isSelectingFrom: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,21 @@ extension ExchangeListViewController: UITableViewDataSource{
 
 extension ExchangeListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        availableCountries.source = countriesCopy[indexPath.row].currencyCode
+        if let vcs = self.navigationController?.viewControllers {
+            let previousVC = vcs[vcs.count - 2]
+            if previousVC is BaseViewController {
+                availableCountries.source = countriesCopy[indexPath.row].currencyCode
+            }
+            else if previousVC is CalculatorViewController {
+                let previous = previousVC as! CalculatorViewController
+                if isSelectingFrom{
+                    availableCountries.source = countriesCopy[indexPath.row].currencyCode
+                }
+                else {
+                    previous.toRate = countriesCopy[indexPath.row].currencyCode
+                }
+            }
+        }
         availableCountries.request(withBase: availableCountries.source)
         navigationController?.popViewController(animated: true)
     }
