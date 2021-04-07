@@ -13,9 +13,9 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
     @IBOutlet weak var baseTableView: UITableView!
     
     //Variables and Constants
-    let DEFAULT_RATE = "EUR"
     let DEFAULT_IMG = "https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png"
     var countriesRates = CountriesRates()
+    var baseRate = "EUR"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,19 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
         self.baseTableView.register(UINib(nibName: "BaseCurrencyCell", bundle: nil), forCellReuseIdentifier: "baseCell")
         countriesRates.delegate = self;
     
-        countriesRates.request(withBase: DEFAULT_RATE)
+        countriesRates.request(withBase: baseRate)
     }
     
+    //Responsible for changing the view in order to make the user choose another currency
     func changeView() {
-        performSegue(withIdentifier: "exchangeList", sender: self)
+        performSegue(withIdentifier: "exchangeSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "exchangeSegue"{
+            let view = segue.destination as? ExchangeListViewController
+            view?.availableCountries = countriesRates
+        }
     }
 }
 

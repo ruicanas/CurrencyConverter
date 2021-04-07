@@ -47,14 +47,17 @@
 }
 
 - (void) readRatesFromDictionary: (NSDictionary*) dict{
+    [self.rates removeAllObjects];
+    Rate *baseRate;
     for(id key in dict){
         Rate *rate = [[Rate alloc] initWithCode:key andValue:[dict objectForKey:key]];
+        if(rate.currencyCode == self.source){
+            baseRate = rate;
+        }
         [self.rates addObject:rate];
     }
     [self.rates sortUsingSelector:@selector(compare:)];
-    
     //The base rate will be added at the top of the array in order to avoid any issues with indexPath in UITableView
-    Rate *baseRate = [[Rate alloc] initWithCode:self.source andValue:[dict objectForKey:self.source]];
     [self.rates insertObject:baseRate atIndex:0];
 }
 

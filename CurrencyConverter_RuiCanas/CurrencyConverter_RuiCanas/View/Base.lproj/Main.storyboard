@@ -36,7 +36,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="baseTableView" destination="FpL-K0-mIf" id="Gdt-G1-cAZ"/>
-                        <segue destination="qiy-2Y-tsy" kind="show" identifier="exchangeList" id="jg7-yE-eQg"/>
+                        <segue destination="qiy-2Y-tsy" kind="show" identifier="exchangeSegue" id="jg7-yE-eQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
