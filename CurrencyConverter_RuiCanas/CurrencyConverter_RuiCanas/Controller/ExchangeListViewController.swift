@@ -18,7 +18,7 @@ class ExchangeListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.listTableView.delegate = self
+        self.listTableView.delegate = self
         self.listTableView.dataSource = self;
         self.listTableView.register(UINib(nibName: "RatesListCell", bundle: nil), forCellReuseIdentifier: "rateListCell")
         removeBaseFromList()
@@ -47,32 +47,31 @@ extension ExchangeListViewController: UITableViewDataSource{
     }
 }
 
-//extension ExchangeListViewController: UITableViewDelegate{
-//    //This view can be accessed by two different views. So, this method will make sure
-//    //that the information is retrieved properly to the previous view.
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let vcs = self.navigationController?.viewControllers {
-//            let previousVC = vcs[vcs.count - 2]
-//            //If the previous view is 'BaseViewController', we just want to change currency code.
-//            if previousVC is BaseViewController {
-//                availableCountries.baseCurrency = countriesCopy[indexPath.row].currencyCode
-//                availableCountries.requestRates(withBase: availableCountries.baseCurrency) //A request of rates is needed because the base currency changed
-//            }
-//            else if previousVC is CalculatorViewController {
-//                //If the previous view is 'CalculatorViewController' we want to change some currency (from ...// to...)
-//                let previous = previousVC as! CalculatorViewController
-//                if isSelectingFrom{
-//                    //If we are going to change the from currency (which is associated to base currency)
-//                    //we also want to change our base currency.
-//                    availableCountries.baseCurrency = countriesCopy[indexPath.row].currencyCode
-//                    availableCountries.requestRates(withBase: availableCountries.baseCurrency) //A request of rates is needed because the base currency changed
-//                }
-//                else {
-//                    previous.toRate = countriesCopy[indexPath.row].currencyCode
-//                }
-//            }
-//        }
-//        navigationController?.popViewController(animated: true)
-//    }
-//}
-
+extension ExchangeListViewController: UITableViewDelegate{
+    //This view can be accessed by two different views. So, this method will make sure
+    //that the information is retrieved properly to the previous view.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vcs = self.navigationController?.viewControllers {
+            let previousVC = vcs[vcs.count - 2]
+            //If the previous view is 'BaseViewController', we just want to change currency code.
+            if previousVC is BaseViewController {
+                let previous = previousVC as! BaseViewController
+                previous.baseRate = countriesCopy[indexPath.row].currencyCode //A request of rates is needed because the base currency changed
+            }
+            else if previousVC is CalculatorViewController {
+                //If the previous view is 'CalculatorViewController' we want to change some currency (from ...// to...)
+                let previous = previousVC as! CalculatorViewController
+                if isSelectingFrom{
+                    //If we are going to change the from currency (which is associated to base currency)
+                    //we also want to change our base currency.
+                    previous.fromRate = countriesCopy[indexPath.row].currencyCode
+                }
+                else {
+                    previous.toRate = countriesCopy[indexPath.row].currencyCode
+                }
+            
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+}
