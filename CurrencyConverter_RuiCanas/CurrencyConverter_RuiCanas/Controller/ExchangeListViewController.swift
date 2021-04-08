@@ -69,7 +69,6 @@ extension ExchangeListViewController: UITableViewDelegate{
                 else {
                     previous.toRate = countriesCopy[indexPath.row].currencyCode
                 }
-            
             }
         }
         navigationController?.popViewController(animated: true)

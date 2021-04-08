@@ -28,8 +28,6 @@ class CalculatorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         calculateButton.layer.cornerRadius = 4
         executeRequestOfRates()
-        fillLabels()
-        clearFields()
     }
     
     override func viewDidLoad() {
@@ -95,10 +93,14 @@ class CalculatorViewController: UIViewController {
         networkLayer.requestRates(withBase: fromRate) { rates in
             self.rates = rates!
             for rate in self.rates{
-                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate in
+                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate  in
                     rate.currencyName = completeRate!.currencyName
                     rate.flagUrl = completeRate!.flagUrl
-                    self.loadingView.isHidden = true
+                    if rate == self.rates.last{
+                        self.fillLabels()
+                        self.clearFields()
+                        self.loadingView.isHidden = true
+                    }
                 }
             }
         }

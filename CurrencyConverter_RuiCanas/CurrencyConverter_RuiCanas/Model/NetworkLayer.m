@@ -45,10 +45,6 @@
     Rate *baseRate;
     for(id key in dict){
         Rate *rate = [[Rate alloc] initWithCode:key andValue:[dict objectForKey:key] andTime:time];
-        [self requestInfoWithCurrency:rate.currencyCode andBlock:^(Rate * finishedRate) {
-            rate.currencyName = finishedRate.currencyName;
-            rate.flagUrl = finishedRate.flagUrl;
-        }];
         if(rate.currencyCode == baseCurrency){
             baseRate = rate;
         }
@@ -81,6 +77,7 @@
             else{
                 NSString *const DEFAULT_IMG = @"https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png";
                 NSString *const DEFAULT_NAME = @"Unavailable Name";
+            
                 rate.currencyName = DEFAULT_NAME;
                 rate.flagUrl = DEFAULT_IMG;
             }

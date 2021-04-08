@@ -59,8 +59,10 @@ class BaseViewController: UIViewController, BaseCurrencyCellDelegate{
                 self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate in
                     rate.currencyName = completeRate!.currencyName
                     rate.flagUrl = completeRate!.flagUrl
-                    self.baseTableView.reloadData()
-                    self.loadingView.isHidden = true
+                    if rate == self.rates.last{
+                        self.baseTableView.reloadData()
+                        self.loadingView.isHidden = true
+                    }
                 }
             }
         }
