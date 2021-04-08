@@ -9,8 +9,6 @@ import UIKit
 
 class ExchangeListViewController: UIViewController{
     @IBOutlet weak var listTableView: UITableView!
-    
-
     var baseCurrency: String!
     var countriesCopy = [Rate]()
     var isSelectingFrom: Bool!  //Bool to check which currency is going to be changed. If is 'true' is because the 'from' currency is going to be changed
@@ -23,8 +21,7 @@ class ExchangeListViewController: UIViewController{
         self.listTableView.register(UINib(nibName: "RatesListCell", bundle: nil), forCellReuseIdentifier: "rateListCell")
         removeBaseFromList()
     }
-    
-    //This method will make the user always chose a different base. If user changes his mind, he can always go back.
+
     func removeBaseFromList(){
         countriesCopy.remove(at: 0)
     }
@@ -42,7 +39,12 @@ extension ExchangeListViewController: UITableViewDataSource{
         cell.currencyLabel.text = countriesCopy[indexPath.row].currencyName
         let url = URL(string: countriesCopy[indexPath.row].flagUrl)
         cell.flagImageView.kf.setImage(with: url)
-        
+        if countriesCopy[indexPath.row].currencyCode == baseCurrency{
+            cell.checkmarkImageView.isHidden = false
+        }
+        else{
+            cell.checkmarkImageView.isHidden = true
+        }
         return cell
     }
 }
@@ -62,11 +64,11 @@ extension ExchangeListViewController: UITableViewDelegate{
                 //If the previous view is 'CalculatorViewController' we want to change some currency (from ...// to...)
                 let previous = previousVC as! CalculatorViewController
                 if isSelectingFrom{
-                    //If we are going to change the from currency (which is associated to base currency)
-                    //we also want to change our base currency.
+                    //To change our 'From' currency
                     previous.fromRate = countriesCopy[indexPath.row].currencyCode
                 }
                 else {
+                    //To change our 'From' currency
                     previous.toRate = countriesCopy[indexPath.row].currencyCode
                 }
             }

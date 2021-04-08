@@ -56,9 +56,9 @@ class BaseViewController: UIViewController, BaseCurrencyCellDelegate{
         networkLayer.requestRates(withBase: baseRate) { rates in
             self.rates = rates!
             for rate in self.rates{
-                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate in
-                    rate.currencyName = completeRate!.currencyName
-                    rate.flagUrl = completeRate!.flagUrl
+                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { currencyName, flagUrl  in
+                    rate.currencyName = currencyName!
+                    rate.flagUrl = flagUrl!
                     if rate == self.rates.last{
                         self.baseTableView.reloadData()
                         self.loadingView.isHidden = true
@@ -81,12 +81,7 @@ extension BaseViewController: UITableViewDataSource{
             cell.codeLabel.text = rates[indexPath.row].currencyCode
             cell.currencyLabel.text = rates[indexPath.row].currencyName
             cell.delegate = self
-            
-//            if rates[indexPath.row].flagUrl.isEmpty{
-//                let url = URL(string: DEFAULT_IMG)
-//                cell.flagImageView.kf.setImage(with: url)
-//            }
-//            else{
+        
             let url = URL(string: rates[indexPath.row].flagUrl)
             cell.flagImageView.kf.setImage(with: url)
             return cell;
@@ -98,13 +93,7 @@ extension BaseViewController: UITableViewDataSource{
         cell.valueLabel.text = rates[indexPath.row].value
         cell.currencyLabel.text = rates[indexPath.row].currencyName
         cell.timeLabel.text = rates[indexPath.row].time
-            
-    
-        //Default image used for unavailable images.
-//        if rates[indexPath.row].flagUrl.isEmpty{
-//            let url = URL(string: DEFAULT_IMG)
-//            cell.flagImageView.kf.setImage(with: url)
-//        }
+        
         let url = URL(string: rates[indexPath.row].flagUrl)
         cell.flagImageView.kf.setImage(with: url)
         return cell;

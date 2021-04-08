@@ -10,5 +10,5 @@
 
 @interface NetworkLayer : NSObject
 - (void) requestRatesWithBase: (NSString*)currencyCode withBlock:(void (^)(NSArray<Rate*>*))Block;
-- (void) requestInfoWithCurrency: (NSString*) currency andBlock:(void (^)(Rate*))Block;
+- (void) requestInfoWithCurrency: (NSString*) currency andBlock:(void (^)(NSString*, NSString*))Block;
 @end

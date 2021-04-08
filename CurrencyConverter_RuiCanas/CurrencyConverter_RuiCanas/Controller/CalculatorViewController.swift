@@ -93,9 +93,9 @@ class CalculatorViewController: UIViewController {
         networkLayer.requestRates(withBase: fromRate) { rates in
             self.rates = rates!
             for rate in self.rates{
-                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate  in
-                    rate.currencyName = completeRate!.currencyName
-                    rate.flagUrl = completeRate!.flagUrl
+                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { currencyName, flagUrl  in
+                    rate.currencyName = currencyName!
+                    rate.flagUrl = flagUrl!
                     if rate == self.rates.last{
                         self.fillLabels()
                         self.clearFields()
@@ -163,9 +163,7 @@ class CalculatorViewController: UIViewController {
         toRate = fromRate
         fromRate = auxRate
         
-        //When swap button is clicked, he is going to clear fields and fill labels with the new ones. It's also important to change the model source.
-        clearFields()
-        fillLabels()
+        
         loadingView.isHidden = false
         executeRequestOfRates()
     }

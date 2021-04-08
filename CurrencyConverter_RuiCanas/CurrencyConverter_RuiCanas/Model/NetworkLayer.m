@@ -57,7 +57,7 @@
 }
 
 //Useful method to fill the remaining info - Currency name and the flag photo.
-- (void) requestInfoWithCurrency: (NSString*) currency andBlock:(void (^)(Rate*))Block{
+- (void) requestInfoWithCurrency: (NSString*) currency andBlock:(void (^)(NSString*, NSString*))Block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSString* strUrl = [NSString stringWithFormat:@"http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=%@", currency];
@@ -69,43 +69,47 @@
             NSLog(@"Error: %@", error);
         } else {
             NSArray <NSDictionary *> *countries = [responseObject valueForKey:@"Response"];
-            Rate* rate = [[Rate alloc] init];
-            rate.currencyCode = currency;
+            __block NSString* currencyName;
+            __block NSString* flagUrl;
             if(countries.count != 0){
-                [self infoFromArray:countries toCountry:rate];
+                [self array:countries toFillCurrency:currencyName andPhoto:flagUrl withBase:currency andBlock:^(NSString * currency, NSString *url) {
+                    currencyName = currency;
+                    flagUrl = url;
+                }];
             }
             else{
                 NSString *const DEFAULT_IMG = @"https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png";
                 NSString *const DEFAULT_NAME = @"Unavailable Name";
             
-                rate.currencyName = DEFAULT_NAME;
-                rate.flagUrl = DEFAULT_IMG;
+                currencyName = DEFAULT_NAME;
+                flagUrl = DEFAULT_IMG;
             }
-            Block(rate);
+            Block(currencyName, flagUrl);
         }
     }];
     [dataTask resume];
 }
 
-- (void) infoFromArray: (NSArray*) countries toCountry: (Rate*)country{
+- (void) array: (NSArray*) countries toFillCurrency: (NSString*)currencyName andPhoto: (NSString*)png withBase: (NSString*)baseCurrency andBlock:(void (^)(NSString*, NSString*))Block{
     NSString *const USA = @"United States of America";
     NSString *const POR = @"Portugal";
     
 
-    if([country.currencyCode isEqualToString:@"USD"] || [country.currencyCode isEqualToString:@"EUR"]){
+    if([baseCurrency isEqualToString:@"USD"] || [baseCurrency isEqualToString:@"EUR"]){
         for(NSDictionary* dict in countries){
             if([dict[@"Name"] isEqualToString:USA]){
-                country.currencyName = dict[@"CurrencyName"];
-                country.flagUrl = dict[@"FlagPng"];
+                currencyName = dict[@"CurrencyName"];
+                png = dict[@"FlagPng"];
             }
             else if([dict[@"Name"] isEqualToString:POR]){
-                country.currencyName = dict[@"CurrencyName"];
-                country.flagUrl = dict[@"FlagPng"];
+                currencyName = dict[@"CurrencyName"];
+                png = dict[@"FlagPng"];
             }
         }
     }else{
-        country.currencyName = countries[0][@"CurrencyName"];
-        country.flagUrl = countries[0][@"FlagPng"];
+        currencyName = countries[0][@"CurrencyName"];
+        png = countries[0][@"FlagPng"];
     }
+    Block(currencyName, png);
 }
 @end
