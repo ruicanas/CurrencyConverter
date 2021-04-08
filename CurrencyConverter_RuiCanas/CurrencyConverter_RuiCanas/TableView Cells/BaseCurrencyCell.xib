@@ -33,7 +33,7 @@
                             <color key="titleColor" systemColor="systemGray4Color"/>
                         </state>
                         <connections>
-                            <action selector="changeBaseCurrencyPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S8q-IQ-tKu"/>
+                            <action selector="changeBaseCurrencyPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Mc9-gn-8PD"/>
                         </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XBw-CB-ta0">

@@ -30,9 +30,5 @@ class BaseCurrencyCell: UITableViewCell {
     
     @IBAction func changeBaseCurrencyPressed(_ sender: Any) {
         delegate?.changeView()
-        
-//        if ([self.delegate respondsToSelector:@selector(updateTableView)]) {
-//            [self.delegate updateTableView];
-//        }
     }
 }

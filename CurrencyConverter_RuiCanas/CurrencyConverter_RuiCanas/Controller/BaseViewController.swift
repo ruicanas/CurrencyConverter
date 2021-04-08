@@ -8,25 +8,30 @@
 import UIKit
 import Kingfisher
 
-class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrencyCellDelegate {
+class BaseViewController: UIViewController, BaseCurrencyCellDelegate{
     //Storyboard Components
     @IBOutlet weak var baseTableView: UITableView!
     @IBOutlet weak var loadingView: UIView!
     
     //Variables and Constants
-    let DEFAULT_IMG = "https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png"
-    var countriesRates = CountryRateModel()
+    let networkLayer = NetworkLayer()
     var baseRate = "EUR"
+    var rates: [Rate] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        executeRequestOfRates()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.baseTableView.delegate = self
         self.baseTableView.dataSource = self;
         self.baseTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "mainCell")
         self.baseTableView.register(UINib(nibName: "BaseCurrencyCell", bundle: nil), forCellReuseIdentifier: "baseCell")
-        countriesRates.delegate = self;
-        countriesRates.requestRates(withBase: countriesRates.baseCurrency)    //Needed to display information at the very beginning
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        loadingView.isHidden = false
     }
     
     //Responsible for changing the view in order to make the user choose another currency
@@ -37,73 +42,70 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "exchangeSegue"{
             let view = segue.destination as? ExchangeListViewController
-            view?.availableCountries = countriesRates
+            view?.countriesCopy = rates
+            view?.baseCurrency = baseRate
         }
     }
     
     @IBAction func updatePressed(_ sender: Any) {
-        countriesRates.requestRates(withBase: countriesRates.baseCurrency)
+        loadingView.isHidden = false
+        executeRequestOfRates()
+    }
+    
+    func executeRequestOfRates(){
+        networkLayer.requestRates(withBase: baseRate) { rates in
+            self.rates = rates!
+            for rate in self.rates{
+                self.networkLayer.requestInfo(withCurrency: rate.currencyCode) { completeRate in
+                    rate.currencyName = completeRate!.currencyName
+                    rate.flagUrl = completeRate!.flagUrl
+                    self.baseTableView.reloadData()
+                    self.loadingView.isHidden = true
+                }
+            }
+        }
     }
 }
 
 extension BaseViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countriesRates.rates.count
+        return rates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let arrayObjects = countriesRates.rates[indexPath.row] as! Rate
-        
         //The first cell will be the base currency cell. This cell is different from the other cells.
         if indexPath.row == 0{
             let cell = baseTableView.dequeueReusableCell(withIdentifier: "baseCell", for: indexPath) as! BaseCurrencyCell
-            cell.codeLabel.text = arrayObjects.currencyCode
-            cell.currencyLabel.text = arrayObjects.currencyName
+            cell.codeLabel.text = rates[indexPath.row].currencyCode
+            cell.currencyLabel.text = rates[indexPath.row].currencyName
             cell.delegate = self
             
-            if arrayObjects.flagUrl.isEmpty{
-                let url = URL(string: DEFAULT_IMG)
-                cell.flagImageView.kf.setImage(with: url)
-            }
-            else{
-                let url = URL(string: arrayObjects.flagUrl)
-                cell.flagImageView.kf.setImage(with: url)
-            }
+//            if rates[indexPath.row].flagUrl.isEmpty{
+//                let url = URL(string: DEFAULT_IMG)
+//                cell.flagImageView.kf.setImage(with: url)
+//            }
+//            else{
+            let url = URL(string: rates[indexPath.row].flagUrl)
+            cell.flagImageView.kf.setImage(with: url)
             return cell;
         }
         
         let cell = baseTableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainCell
-        cell.codeValueLabel.text = arrayObjects.currencyCode
-        cell.codeFlagLabel.text = arrayObjects.currencyCode
-        cell.valueLabel.text = arrayObjects.value
-        cell.currencyLabel.text = arrayObjects.currencyName
-        cell.timeLabel.text = countriesRates.timestamp
-        
+        cell.codeValueLabel.text = rates[indexPath.row].currencyCode
+        cell.codeFlagLabel.text = rates[indexPath.row].currencyCode
+        cell.valueLabel.text = rates[indexPath.row].value
+        cell.currencyLabel.text = rates[indexPath.row].currencyName
+        cell.timeLabel.text = rates[indexPath.row].time
+            
+    
         //Default image used for unavailable images.
-        if arrayObjects.flagUrl.isEmpty{
-            let url = URL(string: DEFAULT_IMG)
-            cell.flagImageView.kf.setImage(with: url)
-        }
-        else{
-            let url = URL(string: arrayObjects.flagUrl)
-            cell.flagImageView.kf.setImage(with: url)
-        }
+//        if rates[indexPath.row].flagUrl.isEmpty{
+//            let url = URL(string: DEFAULT_IMG)
+//            cell.flagImageView.kf.setImage(with: url)
+//        }
+        let url = URL(string: rates[indexPath.row].flagUrl)
+        cell.flagImageView.kf.setImage(with: url)
         return cell;
-    }
-}
-
-extension BaseViewController: UITableViewDelegate{
-    func updateTableView(){
-        baseTableView.reloadData()
-        UIView.animate(withDuration: 0.25) {
-            self.loadingView.alpha = 0
-        }completion: { _ in
-            self.loadingView.isHidden = true
-        }
-        
-        //Update info being holded at TabViewController
-        let tabBar = tabBarController as! TabViewController
-        tabBar.ratesData = countriesRates
     }
 }
 

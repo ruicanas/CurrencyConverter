@@ -9,12 +9,13 @@
 #import "AFNetworking.h"
 
 @implementation Rate
-- (instancetype)initWithCode: (NSString*)code andValue: (NSNumber*)value
+- (instancetype)initWithCode: (NSString*)code andValue: (NSNumber*)value andTime: (NSString*) time
 {
     self = [super init];
     if (self) {
         self.currencyCode = code;
         self.value = [self giveDecimalPlaces:value];
+        self.time = time;
         self.currencyName = @"Unavailable Name";
         self.flagUrl = @"";
     }
@@ -29,5 +30,13 @@
     NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     [fmt setPositiveFormat:@"0.####"];
     return [fmt stringFromNumber:value];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
 }
 @end
