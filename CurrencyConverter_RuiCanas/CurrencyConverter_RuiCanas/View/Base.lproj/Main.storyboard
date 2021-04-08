@@ -21,21 +21,43 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY8-nv-kpv" userLabel="Loading View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="R7y-gB-QmP">
+                                        <rect key="frame" x="188.66666666666666" y="344" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="R7y-gB-QmP" firstAttribute="centerX" secondItem="TY8-nv-kpv" secondAttribute="centerX" id="bRA-Ok-rm8"/>
+                                    <constraint firstItem="R7y-gB-QmP" firstAttribute="centerY" secondItem="TY8-nv-kpv" secondAttribute="centerY" id="rlb-lb-dcQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FpL-K0-mIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FZF-w2-Zzi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FpL-K0-mIf" secondAttribute="trailing" id="HBf-fL-C5t"/>
+                            <constraint firstItem="TY8-nv-kpv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LTD-cn-gxT"/>
+                            <constraint firstItem="TY8-nv-kpv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mtv-Za-bhB"/>
+                            <constraint firstItem="TY8-nv-kpv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dL5-5O-seW"/>
                             <constraint firstItem="FpL-K0-mIf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mIc-Iq-R1R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FpL-K0-mIf" secondAttribute="bottom" id="p0E-us-fmw"/>
+                            <constraint firstItem="TY8-nv-kpv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rrg-5Z-TGl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Exchange Rates" id="MNO-yQ-ex7">
-                        <barButtonItem key="rightBarButtonItem" title="update" image="arrow.counterclockwise" catalog="system" id="nph-Ys-Nf8"/>
+                        <barButtonItem key="rightBarButtonItem" title="update" image="arrow.counterclockwise" catalog="system" id="nph-Ys-Nf8">
+                            <connections>
+                                <action selector="updatePressed:" destination="BYZ-38-t0r" id="AxV-w4-sV8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="baseTableView" destination="FpL-K0-mIf" id="Gdt-G1-cAZ"/>
+                        <outlet property="loadingView" destination="TY8-nv-kpv" id="U2F-e1-69R"/>
                         <segue destination="qiy-2Y-tsy" kind="show" identifier="exchangeSegue" id="jg7-yE-eQg"/>
                     </connections>
                 </viewController>

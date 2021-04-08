@@ -99,6 +99,13 @@ class CalculatorViewController: UIViewController {
     
     
     @objc func pencilFromTapped(gesture: UITapGestureRecognizer){
+        UIView.animate(withDuration: 0.4) {
+            self.changeFromImageView.alpha = 0.5
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.changeFromImageView.alpha = 1
+        }
+        
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.availableCountries = countriesRates
@@ -107,6 +114,13 @@ class CalculatorViewController: UIViewController {
     }
     
     @objc func pencilToTapped(gesture: UITapGestureRecognizer){
+        UIView.animate(withDuration: 0.4) {
+            self.changeToImageView.alpha = 0.5
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.changeToImageView.alpha = 1
+        }
+        
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.availableCountries = countriesRates
@@ -115,13 +129,21 @@ class CalculatorViewController: UIViewController {
     }
     
     @objc func swapTapped(gesture: UITapGestureRecognizer){
+        UIView.animate(withDuration: 0.4) {
+            self.swapImageView.alpha = 0.5
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.swapImageView.alpha = 1
+        }
+
         let auxRate = toRate
-        countriesRates.baseCurrency = fromRate
+        toRate = fromRate
         fromRate = auxRate
         
         //When swap button is clicked, he is going to clear fields and fill labels with the new ones. It's also important to change the model source.
         clearFields()
         fillLabels()
+        countriesRates.baseCurrency = fromRate
         countriesRates.requestRates(withBase: countriesRates.baseCurrency)
     }
 }

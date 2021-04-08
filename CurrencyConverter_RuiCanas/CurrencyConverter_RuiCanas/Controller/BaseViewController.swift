@@ -11,6 +11,7 @@ import Kingfisher
 class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrencyCellDelegate {
     //Storyboard Components
     @IBOutlet weak var baseTableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
     
     //Variables and Constants
     let DEFAULT_IMG = "https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png"
@@ -38,6 +39,10 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
             let view = segue.destination as? ExchangeListViewController
             view?.availableCountries = countriesRates
         }
+    }
+    
+    @IBAction func updatePressed(_ sender: Any) {
+        countriesRates.requestRates(withBase: countriesRates.baseCurrency)
     }
 }
 
@@ -90,6 +95,11 @@ extension BaseViewController: UITableViewDataSource{
 extension BaseViewController: UITableViewDelegate{
     func updateTableView(){
         baseTableView.reloadData()
+        UIView.animate(withDuration: 0.25) {
+            self.loadingView.alpha = 0
+        }completion: { _ in
+            self.loadingView.isHidden = true
+        }
         
         //Update info being holded at TabViewController
         let tabBar = tabBarController as! TabViewController

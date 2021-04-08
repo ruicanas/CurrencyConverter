@@ -41,6 +41,7 @@ extension ExchangeListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let arrayObjects = countriesCopy[indexPath.row]
         let cell = listTableView.dequeueReusableCell(withIdentifier: "rateListCell", for: indexPath) as! RatesListCell
+    
         cell.codeLabel.text = arrayObjects.currencyCode
         cell.currencyLabel.text = arrayObjects.currencyName
         if arrayObjects.flagUrl.isEmpty{
