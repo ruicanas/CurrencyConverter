@@ -8,7 +8,7 @@
 import UIKit
 
 class TabViewController: UITabBarController {
-    var ratesData: CountriesRates!
+    var ratesData: CountryRateModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

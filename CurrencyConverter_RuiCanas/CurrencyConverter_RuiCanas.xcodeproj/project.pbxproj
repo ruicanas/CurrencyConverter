@@ -13,7 +13,7 @@
 		2D06C4F6261C580E00D35810 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4F4261C580E00D35810 /* MainCell.xib */; };
 		2D06C4FA261C5C0900D35810 /* BaseCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C4F8261C5C0900D35810 /* BaseCurrencyCell.swift */; };
 		2D06C4FB261C5C0900D35810 /* BaseCurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D06C4F9261C5C0900D35810 /* BaseCurrencyCell.xib */; };
-		2D06C50D261C715B00D35810 /* CountriesRates.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C50C261C715B00D35810 /* CountriesRates.m */; };
+		2D06C50D261C715B00D35810 /* CountryRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D06C50C261C715B00D35810 /* CountryRateModel.m */; };
 		2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F5261B5350005DEE64 /* AppDelegate.swift */; };
 		2D9270F8261B5350005DEE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9270F7261B5350005DEE64 /* SceneDelegate.swift */; };
 		2D9270FD261B5350005DEE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9270FB261B5350005DEE64 /* Main.storyboard */; };
@@ -36,8 +36,8 @@
 		2D06C4F8261C5C0900D35810 /* BaseCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyCell.swift; sourceTree = "<group>"; };
 		2D06C4F9261C5C0900D35810 /* BaseCurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseCurrencyCell.xib; sourceTree = "<group>"; };
 		2D06C506261C710E00D35810 /* CurrencyConverter_RuiCanas-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CurrencyConverter_RuiCanas-Bridging-Header.h"; sourceTree = "<group>"; };
-		2D06C50B261C715B00D35810 /* CountriesRates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountriesRates.h; sourceTree = "<group>"; };
-		2D06C50C261C715B00D35810 /* CountriesRates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountriesRates.m; sourceTree = "<group>"; };
+		2D06C50B261C715B00D35810 /* CountryRateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryRateModel.h; sourceTree = "<group>"; };
+		2D06C50C261C715B00D35810 /* CountryRateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryRateModel.m; sourceTree = "<group>"; };
 		2D9270F2261B5350005DEE64 /* CurrencyConverter_RuiCanas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter_RuiCanas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9270F5261B5350005DEE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9270F7261B5350005DEE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 			children = (
 				2DCFDF8B261D091800E4B3D2 /* Rate.h */,
 				2DCFDF8C261D091800E4B3D2 /* Rate.m */,
-				2D06C50B261C715B00D35810 /* CountriesRates.h */,
-				2D06C50C261C715B00D35810 /* CountriesRates.m */,
+				2D06C50B261C715B00D35810 /* CountryRateModel.h */,
+				2D06C50C261C715B00D35810 /* CountryRateModel.m */,
 				2D06C506261C710E00D35810 /* CurrencyConverter_RuiCanas-Bridging-Header.h */,
 			);
 			path = Model;
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D06C50D261C715B00D35810 /* CountriesRates.m in Sources */,
+				2D06C50D261C715B00D35810 /* CountryRateModel.m in Sources */,
 				2D927116261B5DF6005DEE64 /* ExchangeListViewController.swift in Sources */,
 				2D06C4F5261C580E00D35810 /* MainCell.swift in Sources */,
 				2D9270F6261B5350005DEE64 /* AppDelegate.swift in Sources */,

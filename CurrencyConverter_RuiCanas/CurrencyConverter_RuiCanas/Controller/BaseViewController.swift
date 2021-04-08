@@ -14,7 +14,7 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
     
     //Variables and Constants
     let DEFAULT_IMG = "https://cdn1.iconfinder.com/data/icons/rounded-flat-country-flag-collection-1/2000/_Unknown.png"
-    var countriesRates = CountriesRates()
+    var countriesRates = CountryRateModel()
     var baseRate = "EUR"
     
     override func viewDidLoad() {
@@ -25,12 +25,7 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
         self.baseTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "mainCell")
         self.baseTableView.register(UINib(nibName: "BaseCurrencyCell", bundle: nil), forCellReuseIdentifier: "baseCell")
         countriesRates.delegate = self;
-        
-        countriesRates.request(withBase: countriesRates.source)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        baseRate = countriesRates.source
+        countriesRates.requestRates(withBase: countriesRates.baseCurrency)    //Needed to display information at the very beginning
     }
     
     //Responsible for changing the view in order to make the user choose another currency
@@ -44,8 +39,6 @@ class BaseViewController: UIViewController, CountriesRatesDelegate, BaseCurrency
             view?.availableCountries = countriesRates
         }
     }
-    
-    
 }
 
 extension BaseViewController: UITableViewDataSource{

@@ -10,9 +10,9 @@
 
 @protocol CountriesRatesDelegate;
 
-@interface CountriesRates : NSObject
+@interface CountryRateModel : NSObject
 //Properties
-@property NSString *source;
+@property NSString *baseCurrency;
 @property NSMutableArray <Rate *> *rates;
 @property NSString *timestamp;
 @property (weak, nonatomic) id<CountriesRatesDelegate> delegate;

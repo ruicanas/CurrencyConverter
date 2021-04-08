@@ -244,6 +244,7 @@
                         <outlet property="currencyNameFromLabel" destination="oh1-WJ-VCh" id="GlL-qO-YWr"/>
                         <outlet property="currencyNameToLabel" destination="T2K-rA-PNP" id="271-w2-ebA"/>
                         <outlet property="fromCurrencyTextField" destination="L7R-7Z-WdU" id="qTA-tH-FZp"/>
+                        <outlet property="swapImageView" destination="aO0-3f-bbM" id="JRt-6v-sjI"/>
                         <outlet property="toCurrencyTextField" destination="1Ak-Nf-WPW" id="0n9-cH-G9i"/>
                     </connections>
                 </viewController>

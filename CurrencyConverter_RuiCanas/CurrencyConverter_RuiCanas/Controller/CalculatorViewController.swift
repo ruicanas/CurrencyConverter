@@ -17,14 +17,15 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var toCurrencyTextField: UITextField!
     @IBOutlet weak var changeFromImageView: UIImageView!
     @IBOutlet weak var changeToImageView: UIImageView!
+    @IBOutlet weak var swapImageView: UIImageView!
     
     var fromRate = "EUR"
     var toRate = "USD"
-    var countriesRates = CountriesRates()
+    var countriesRates = CountryRateModel()
     
     override func viewWillAppear(_ animated: Bool) {
         calculateButton.layer.cornerRadius = 4
-        fromRate = countriesRates.source
+        fromRate = countriesRates.baseCurrency    //In order to make the baseCurrency always the "fromRate" on our calculator.
         fillLabels()
         clearFields()
     }
@@ -33,7 +34,6 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
         let tabBar = tabBarController as! TabViewController
         countriesRates = tabBar.ratesData
-        
         dealGesturesTaps()
     }
     
@@ -86,29 +86,42 @@ class CalculatorViewController: UIViewController {
     func dealGesturesTaps(){
         changeFromImageView.isUserInteractionEnabled = true
         changeToImageView.isUserInteractionEnabled = true
+        swapImageView.isUserInteractionEnabled = true
         
         let gestureFrom = UITapGestureRecognizer(target: self, action: #selector(pencilFromTapped(gesture:)))
         let gestureTo = UITapGestureRecognizer(target: self, action: #selector(pencilToTapped(gesture:)))
+        let gestureSwap = UITapGestureRecognizer(target: self, action: #selector(swapTapped(gesture:)))
+        
         changeFromImageView.addGestureRecognizer(gestureFrom)
         changeToImageView.addGestureRecognizer(gestureTo)
+        swapImageView.addGestureRecognizer(gestureSwap)
     }
     
     
     @objc func pencilFromTapped(gesture: UITapGestureRecognizer){
-        print("here from")
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.availableCountries = countriesRates
-        view.isSelectingFrom = true
+        view.isSelectingFrom = true //This will tell 'ExchangeListViewController' that the 'from currency' is going to be changed.
         navigationController?.pushViewController(view, animated: true)
     }
     
     @objc func pencilToTapped(gesture: UITapGestureRecognizer){
-        print("here to")
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.availableCountries = countriesRates
-        view.isSelectingFrom = false
+        view.isSelectingFrom = false //This will tell 'ExchangeListViewController' that the 'to currency' is going to be changed.
         navigationController?.pushViewController(view, animated: true)
+    }
+    
+    @objc func swapTapped(gesture: UITapGestureRecognizer){
+        let auxRate = toRate
+        countriesRates.baseCurrency = fromRate
+        fromRate = auxRate
+        
+        //When swap button is clicked, he is going to clear fields and fill labels with the new ones. It's also important to change the model source.
+        clearFields()
+        fillLabels()
+        countriesRates.requestRates(withBase: countriesRates.baseCurrency)
     }
 }

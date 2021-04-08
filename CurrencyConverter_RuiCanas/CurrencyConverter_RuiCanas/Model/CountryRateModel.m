@@ -5,17 +5,17 @@
 //  Created by itsector on 06/04/2021.
 //
 
-#import "CountriesRates.h"
+#import "CountryRateModel.h"
 #import "AFNetworking.h"
 
-@implementation CountriesRates
+@implementation CountryRateModel
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.rates = [[NSMutableArray alloc] init];
-        self.source = [[NSString alloc] init];
+        self.baseCurrency = [[NSString alloc] init];
         self.timestamp = [[NSString alloc] init];
     }
     return self;
@@ -35,7 +35,7 @@
             NSLog(@"Error: %@", error);
         } else {
             NSDictionary* helpDict = [[NSDictionary alloc] initWithDictionary:[responseObject valueForKey:@"rates"]];
-            self.source = [responseObject valueForKey:@"base"];
+            self.baseCurrency = [responseObject valueForKey:@"base"];
             self.timestamp = [responseObject valueForKey:@"date"];
             [self readRatesFromDictionary:helpDict];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -51,7 +51,7 @@
     Rate *baseRate;
     for(id key in dict){
         Rate *rate = [[Rate alloc] initWithCode:key andValue:[dict objectForKey:key]];
-        if(rate.currencyCode == self.source){
+        if(rate.currencyCode == self.baseCurrency){
             baseRate = rate;
         }
         [self.rates addObject:rate];
@@ -61,6 +61,7 @@
     [self.rates insertObject:baseRate atIndex:0];
 }
 
+//Useful method to fill the remaining info - Currency name and the flag photo.
 - (void) requestRemainingInfo{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
