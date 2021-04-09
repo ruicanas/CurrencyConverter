@@ -8,17 +8,28 @@
 import UIKit
 
 class MainCell: UITableViewCell {
-    @IBOutlet weak var flagImageView: UIImageView!
-    @IBOutlet weak var codeFlagLabel: UILabel!
-    @IBOutlet weak var codeValueLabel: UILabel!
-    @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var flagImageView: UIImageView!
+    @IBOutlet private weak var codeFlagLabel: UILabel!
+    @IBOutlet private weak var codeValueLabel: UILabel!
+    @IBOutlet private weak var currencyLabel: UILabel!
+    @IBOutlet private weak var valueLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func updateCell(model: Rate){
+        codeValueLabel.text = model.currencyCode
+        codeFlagLabel.text = model.currencyCode
+        valueLabel.text = model.value
+        currencyLabel.text = model.currencyName
+        timeLabel.text = model.time
+    
+        let url = URL(string: model.flagUrl)
+        flagImageView.kf.setImage(with: url)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

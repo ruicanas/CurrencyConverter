@@ -34,17 +34,7 @@ extension ExchangeListViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = listTableView.dequeueReusableCell(withIdentifier: "rateListCell", for: indexPath) as! RatesListCell
-    
-        cell.codeLabel.text = countriesCopy[indexPath.row].currencyCode
-        cell.currencyLabel.text = countriesCopy[indexPath.row].currencyName
-        let url = URL(string: countriesCopy[indexPath.row].flagUrl)
-        cell.flagImageView.kf.setImage(with: url)
-        if countriesCopy[indexPath.row].currencyCode == baseCurrency{
-            cell.checkmarkImageView.isHidden = false
-        }
-        else{
-            cell.checkmarkImageView.isHidden = true
-        }
+        cell.updateCell(model: countriesCopy[indexPath.row], baseCurrency: baseCurrency)
         return cell
     }
 }

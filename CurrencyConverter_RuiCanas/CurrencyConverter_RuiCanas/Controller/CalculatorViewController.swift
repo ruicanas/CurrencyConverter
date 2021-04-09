@@ -71,11 +71,11 @@ class CalculatorViewController: UIViewController {
         var currencyNameFrom: String!
         var currencyNameTo: String!
         for rate in rates{
-            if rate.currencyCode == toRate{
-                currencyNameTo = rate.currencyName
-            }
             if rate.currencyCode == fromRate{
                 currencyNameFrom = rate.currencyName
+            }
+            if rate.currencyCode == toRate{
+                currencyNameTo = rate.currencyName
             }
         }
         codeFromCurrencyLabel.text = fromRate
@@ -132,6 +132,7 @@ class CalculatorViewController: UIViewController {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.countriesCopy = rates
+        view.baseCurrency = fromRate
         view.isSelectingFrom = true //This will tell 'ExchangeListViewController' that the 'from currency' is going to be changed.
         navigationController?.pushViewController(view, animated: true)
     }
@@ -147,6 +148,7 @@ class CalculatorViewController: UIViewController {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let view: ExchangeListViewController = main.instantiateViewController(identifier: "exchange")
         view.countriesCopy = rates
+        view.baseCurrency = toRate
         view.isSelectingFrom = false //This will tell 'ExchangeListViewController' that the 'to currency' is going to be changed.
         navigationController?.pushViewController(view, animated: true)
     }

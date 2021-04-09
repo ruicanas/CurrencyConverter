@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="1357.9710144927537" y="851.78571428571422"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="ARz-xk-7Jn">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8BZ-2j-Io1" customClass="TabViewController" customModule="CurrencyConverter_RuiCanas" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8BZ-2j-Io1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f3c-hS-LGN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

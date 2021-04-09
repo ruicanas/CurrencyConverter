@@ -75,28 +75,17 @@ extension BaseViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //The first cell will be the base currency cell. This cell is different from the other cells.
+        //The first cell will be the base currency cell. This cell is different from the other ones.
         if indexPath.row == 0{
             let cell = baseTableView.dequeueReusableCell(withIdentifier: "baseCell", for: indexPath) as! BaseCurrencyCell
-            cell.codeLabel.text = rates[indexPath.row].currencyCode
-            cell.currencyLabel.text = rates[indexPath.row].currencyName
+            cell.updateCell(model: rates[indexPath.row])
             cell.delegate = self
-        
-            let url = URL(string: rates[indexPath.row].flagUrl)
-            cell.flagImageView.kf.setImage(with: url)
             return cell;
         }
-        
         let cell = baseTableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainCell
-        cell.codeValueLabel.text = rates[indexPath.row].currencyCode
-        cell.codeFlagLabel.text = rates[indexPath.row].currencyCode
-        cell.valueLabel.text = rates[indexPath.row].value
-        cell.currencyLabel.text = rates[indexPath.row].currencyName
-        cell.timeLabel.text = rates[indexPath.row].time
-        
-        let url = URL(string: rates[indexPath.row].flagUrl)
-        cell.flagImageView.kf.setImage(with: url)
+        cell.updateCell(model: rates[indexPath.row])
         return cell;
     }
 }
+
 
