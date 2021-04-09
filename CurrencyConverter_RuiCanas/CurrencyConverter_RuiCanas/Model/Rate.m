@@ -9,6 +9,14 @@
 #import "AFNetworking.h"
 
 @implementation Rate
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 - (instancetype)initWithCode: (NSString*)code andValue: (NSNumber*)value andTime: (NSString*) time
 {
     self = [super init];
@@ -30,13 +38,5 @@
     NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     [fmt setPositiveFormat:@"0.####"];
     return [fmt stringFromNumber:value];
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
 }
 @end
